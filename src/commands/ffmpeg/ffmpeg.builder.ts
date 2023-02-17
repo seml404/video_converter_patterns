@@ -5,7 +5,7 @@ export class FfmpegBuilder {
     this.options.set("c:v", "libx264");
   }
   input(inputPath: string): this {
-    inputPath = inputPath;
+    this.inputPath = inputPath;
     return this;
   }
   setVideoSize(width: number, height: number): this {
@@ -28,7 +28,7 @@ export class FfmpegBuilder {
 }
 
 
-new FfmpegBuilder()
-.input('')
-.setVideoSize(1920, 1080)
-.output('//')
+// new FfmpegBuilder()
+// .input('')
+// .setVideoSize(1920, 1080)
+// .output('//')

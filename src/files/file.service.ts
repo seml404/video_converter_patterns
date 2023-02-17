@@ -1,4 +1,8 @@
 import { isAbsolute, join, dirname } from "path";
+import { fileURLToPath } from "url";
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 import { promises } from "fs";
 export class FileService {
   async fileExists(file_path: string) {
@@ -10,9 +14,10 @@ export class FileService {
     }
   }
 
-  public getFiletPath(path: string, name: string, ext: string) {
+  public getFilePath(path: string, name: string, ext: string) {
     if (!isAbsolute(path)) {
       path = join(__dirname + "/" + path);
+      console.log(path);
     }
     return join(dirname(path) + "/" + name + "." + ext);
   }
